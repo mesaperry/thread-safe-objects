@@ -7,13 +7,14 @@
 
 namespace tso {
 
-template <class T>
+template template <class T>
 class TSO {
 public:
     TSO(T& object) {
 
     }
-
+private:
+    T _obj;
 };
 
 }
