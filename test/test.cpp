@@ -2,6 +2,12 @@
 // Created by mgperry on 7/1/21.
 //
 
+#include "tso.h"
+
+#include <iostream>
+
 int main() {
+    tso::Sync<int> b(2);
+
     return 0;
 }
