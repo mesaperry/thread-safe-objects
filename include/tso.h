@@ -10,14 +10,14 @@
 
 namespace tso {
 
-    template<class T>
+    template <class T>
     class Mutex {
     public:
-        Mutex(T &&object) : _obj(std::move(object)) {}
+        Mutex(T&& obj) : obj_(std::move(obj)) {}
 
     private:
-        T _obj;
-        std::mutex _mutex;
+        T obj_;
+        std::mutex mutex_;
     };
 
 }
