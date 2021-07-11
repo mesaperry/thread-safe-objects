@@ -7,7 +7,7 @@
 #include <iostream>
 
 int main() {
-    tso::Sync<int> b(2);
+    tso::Mutex<int> b(2);
 
     return 0;
 }
