@@ -14,19 +14,19 @@ namespace tsw {
     template <typename T>
     class Mutex {
     public:
-        Mutex(T&& obj) : obj_(std::move(obj)) {}
+        Mutex(T&& obj) : _obj(std::move(obj)) {}
 
         std::mutex& getMutex() {
-            return mutex_;
+            return _mutex;
         }
 
         T& getObj() {
-            return obj_;
+            return _obj;
         }
 
     private:
-        T obj_;
-        std::mutex mutex_;
+        T _obj;
+        std::mutex _mutex;
     };
 
 }

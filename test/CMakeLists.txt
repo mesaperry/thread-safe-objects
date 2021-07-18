@@ -5,7 +5,7 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
-add_executable(Test test.cpp)
+add_executable(Test test_mutex.cpp)
 target_link_libraries(Test gtest_main)
 
 include(GoogleTest)

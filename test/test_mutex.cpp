@@ -8,7 +8,7 @@
 
 #include <chrono>
 
-TEST(MutexTest, ConcatenateStrings) {
+TEST(TestMutex, ConcatenateStrings) {
     tsw::Mutex<std::string> obj("");
     std::string str1 = "fuahwovnfjcwfiijfeowdewgrfvafklnfwevnbviowhcnqoiwdfwe";
     std::string str2 = "ialhgjonvkjdfnvjcnscqwneojniwvonhnjkbnsvjkcn";
