@@ -5,5 +5,3 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include_directories(include)
 add_subdirectory(test)
-enable_testing()
-add_test(NAME MyTest COMMAND Test)

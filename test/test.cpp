@@ -2,14 +2,14 @@
 // Created by mgperry on 7/1/21.
 //
 
-#include "tso.h"
+#include "tsw.h"
 
 #include <gtest/gtest.h>
 
 #include <chrono>
 
 TEST(MutexTest, ConcatenateStrings) {
-    tso::Mutex<std::string> obj("");
+    tsw::Mutex<std::string> obj("");
     std::string str1 = "fuahwovnfjcwfiijfeowdewgrfvafklnfwevnbviowhcnqoiwdfwe";
     std::string str2 = "ialhgjonvkjdfnvjcnscqwneojniwvonhnjkbnsvjkcn";
     auto append = [&obj](std::string suffix){

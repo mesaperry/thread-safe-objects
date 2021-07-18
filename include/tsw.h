@@ -2,14 +2,14 @@
 // Created by mesa on 6/22/21.
 //
 
-#ifndef THREAD_SAFE_OBJECT_TSO_H
-#define THREAD_SAFE_OBJECT_TSO_H
+#ifndef THREAD_SAFE_WRAPPER_TSW_H
+#define THREAD_SAFE_WRAPPER_TSW_H
 
 #include <utility>
 #include <mutex>
 #include <thread>
 
-namespace tso {
+namespace tsw {
 
     template <typename T>
     class Mutex {
@@ -30,4 +30,4 @@ namespace tso {
     };
 
 }
-#endif //THREAD_SAFE_OBJECT_TSO_H
+#endif //THREAD_SAFE_WRAPPER_TSW_H
