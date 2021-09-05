@@ -6,16 +6,18 @@
 
 #include <gtest/gtest.h>
 
+#include <thread>
 #include <chrono>
+#include <string>
 
 TEST(TestMutex, ConcatenateStrings) {
-    tsw::Mutex<std::string> obj("");
+    TSW::Mutex<std::string> obj_wrapped("");
     std::string str1 = "fuahwovnfjcwfiijfeowdewgrfvafklnfwevnbviowhcnqoiwdfwe";
     std::string str2 = "ialhgjonvkjdfnvjcnscqwneojniwvonhnjkbnsvjkcn";
-    auto append = [&obj](std::string suffix){
-        std::scoped_lock lock(obj.getMutex());
+    auto append = [&obj_wrapped](std::string suffix){
+        TSW::Locked<std::string> obj(obj_wrapped.lock());
         for (auto ch : suffix) {
-            obj.getObj() += ch;
+            *obj += ch;
             std::this_thread::sleep_for(std::chrono::microseconds(100));
         }
     };
@@ -24,8 +26,9 @@ TEST(TestMutex, ConcatenateStrings) {
     std::thread t2(append, str2);
     t1.join();
     t2.join();
-    EXPECT_EQ(obj.getObj().size(), str1.size() + str2.size());
-    for (int i = 0; i < obj.getObj().size(); i++) {
-        EXPECT_EQ(obj.getObj()[i], (str1 + str2)[i]) << "Strings differ at index " << i;
+    TSW::Locked<std::string> obj(obj_wrapped.lock());
+    EXPECT_EQ(obj->size(), str1.size() + str2.size());
+    for (int i = 0; i < obj->size(); i++) {
+        EXPECT_EQ((*obj)[i], (str1 + str2)[i]) << "Strings differ at index " << i;
     }
 }
